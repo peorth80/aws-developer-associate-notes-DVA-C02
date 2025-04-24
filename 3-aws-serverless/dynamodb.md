@@ -1,9 +1,9 @@
 # DynamoDB
 
 - NoSQL serverless database
-- Fully managed, highly available with replication accross 3 AZs
+- Fully managed, highly available with replication across 3 AZs
 - Scales to massive workloads, distributed
-- Millions records per seconds, trillions of rows, 100TB of storage
+- Millions of records per seconds, trillions of rows, 100TB of storage
 - Fast and consistent in performance (low latency retrieval)
 - Integrates with IAM for security and administration
 - Enables event driven programming
@@ -20,9 +20,9 @@
 ## DynamoDB Basics
 
 - Made of **tables**
-- Each tables has a **primary key**
+- Each table has a **primary key**
 - Each table can have inf. number of rows(items)
-- Each item can have **attributes** (columns, but the can be nested)
+- Each item can have **attributes** (columns, but they can be nested)
 - Max size of an item is 400KB
 - Data types supported:
     - Scalar: String, Number, Binary, Boolean, Null
@@ -45,7 +45,7 @@
 - **Write Capacity Units (WCU)**: throughput for writes
 - Option to setup auto-scaling of throughput to meet demand
 - Throughput can be exceeded temporarily using "burst credits"
-- If no burst credits are available, we get a **ProvisionedThroughputException**
+- If no burst credits are available, we get a **ProvisionedThroughputExceededException**
 - We should use exponential back-off for retries in case get the exception above
 - One write capacity unit represents one write per second for an item up to 1KB in size
 - If the items are larger than 1KB, more WCU is consumed
@@ -65,7 +65,7 @@
 
 - **Eventually consistent reads**: if we read after a while it is possible to get unexpected data, there is a possibility that the data did not replicate to every node
 - **Strongly consistent reads**: if we read data just after the write we get correct data
-- By default: DynamoDB uses eventually consistent reads, but *GetItem*, *Query* and *Scan* can provide a **ConsistentRead** parameter to achive strong consistency
+- By default: DynamoDB uses eventually consistent reads, but *GetItem*, *Query* and *Scan* can provide a **ConsistentRead** parameter to achieve strong consistency
 - One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second for an item up to 4KB in size
 - If the items are larger than 4KB, more RCU is consumed
 
@@ -90,7 +90,7 @@
 
 ## DynamoDB Internal Partitions
 
-- Data is devided in partitions
+- Data is divided in partitions
 - Partition keys are hashed in order to know in which partition will the data go
 - To compute the number of partitions:
     - Capacity: `(TOTAL RCU / 3000) + (TOTAL WCU / 1000)`
@@ -117,7 +117,7 @@
 - **PutItem** - write data to DynamoDB (create data or full replace data)
     - Consumes WCU
 - **UpdateIem** - update data in DynamoDB (partial update of attributes)
-    - Possibility to use Atomic Counters and increas them
+    - Possibility to use Atomic Counters and increase them
 - **Conditional Writes**:
     - Accept a write/update only if some conditions are met
     - Helps with concurrent access
@@ -147,7 +147,7 @@
 - **GetItem**
     - Read based on the primary key
     - Primary key = HASH or HASH-RANGE (partition key + sort key)
-    - Eventually consisten by default, but has an option to have strong consistency
+    - Eventually consistent by default, but has an option to have strong consistency
     - **ProjectionExpression** can be specified to include only certain attributes
 
 - **BatchGetItem**
@@ -159,21 +159,21 @@
 - **Query**
     - PartitionKey value (*must be equals ("=") operator*)
     - SortKey value (operators: =, <, <= >, >=, Between, Begin) - optional
-    - FIlterExpresion to further filter the data (this will happen on the client side)
+    - FilterExpression to further filter the data (this will happen on the client side)
     - Returns up to 1MB of data or number of items specified by the **Limit**
     - Able to do pagination
     - We can query a table, secondary index or global secondary index
-    - Efficien way to query DynamoDB!
+    - Efficient way to query DynamoDB!
 
 - **Scan**
     - Scans the entire table and then filter data
     - Returns up to 1MB ot data - we can use pagination to keep reading
-    - Consumes lot of RCU
+    - Consumes a lot of RCU
     - Limit impact using **Limit** /  reduce the size of the result in order to reduce costs
     - Fost faster performance we can use parallel scan
         - Way more RCU!
     - Can we use a combination of *ProjectionExpression + FilterExpression* (no charge to RCU)
-    - Inefficien way to read data from DynamoDB!
+    - Inefficient way to read data from DynamoDB!
 
 ## DynamoDB Indexes
 
@@ -205,7 +205,7 @@
 
 ## DynamoDB Concurrency Model
 
-- Conditional update/delete: ensures the item hasn't change before altering it
+- Conditional update/delete: ensures the item hasn't changed before altering it
 - This feature makes DynamoDB an **optimistic locking / concurrent** database
 
 ## DynamoDB Accelerator (DAX)
@@ -213,12 +213,12 @@
 - It is a seamless caching mechanism for DynamoDB
 - It can be activated without doing any code change on the application which uses the database
 - Writes go through DAX to DynamoDB
-- Micro second latency for cache reads & queryies
-- Solves one big probles: **Hot Key problem** (too many requests for the same key)
+- Micro second latency for cache reads & queries
+- Solves one big problems: **Hot Key problem** (too many requests for the same key)
 - By default: 5 min TTL for every item in the cache
 - Up to 10 nodes in the cluster
 - Multi AZ (3 nodes minimum recommended)
-- Secury (encription at rest with KMS, IAM, CloudTrail)
+- Secure (encryption at rest with KMS, IAM, CloudTrail)
 
 ## DynamoDB Streams
 
@@ -226,15 +226,15 @@
 - This stream can be read by Lambda or by EC2 instances
 - They can react to this changelog by:
     - Doing analytics
-    - Create derivate tables/view
+    - Create derivative tables/view
     - Insert data in ElasticSearch
     - etc.
 - Could implement cross region replication using Streams (nowadays it is a provided feature by DynamoDB)
 - Stream have 24 hours of retention (we can not change this)
-- We can choose what type of informaion ends up in stream:
+- We can choose what type of information ends up in stream:
     - KEYS_ONLY - only the key attributes of the modified items are pushed to the stream
     - NEW_IMAGE - the entire item is pushed to the stream after it was modified
-    - OLD_IMAGE - the entire item is pushed to the stream before it was modfied
+    - OLD_IMAGE - the entire item is pushed to the stream before it was modified
     - NEW_AND_OLD_IMAGES - the entire item is pushed to the stream
 - DynamoDB streams are made of shards, we don't have to provision them
 - Records are not retroactively pushed to the stream after enabling it!
@@ -321,9 +321,9 @@
     - Two users try to update the same record in the same time
     - The last update wins
 - Conditional writes
-    - A write can onyl happen if a specific condition is met
-    - First write will succed, second write will fail because the condition wont be met
-    - Important: **data is not overriden**
+    - A write can only happen if a specific condition is met
+    - First write will succeed, second write will fail because the condition wont be met
+    - Important: **data is not overridden**
 - Atomic writes:
     - INCREASE BY or DECREASE BY writes
 - Batch writes:
@@ -355,7 +355,7 @@
     - VPC Endpoints to access DynamoDB without internet
     - Access fully controlled by IAM
     - Encryption at rest using KMS
-    - Encryption  in transint using SSL/TLS
+    - Encryption  in transit using SSL/TLS
 - Backup/Restore:
     - Point in time restore la RDS
     - No performance impact

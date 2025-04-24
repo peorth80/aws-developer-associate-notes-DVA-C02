@@ -23,7 +23,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 
 ### API Gateway Endpoint Types
 
-- Edge-Optimized (defaut): for global clients
+- Edge-Optimized (default): for global clients
     - Requests will be routed through the CloudFront Edge locations
     - API Gateway will still live in one region where it was created
 - Regional: for clients within the same region. Can be combined with CloudFront for control over caching strategies and distribution
@@ -57,7 +57,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 
 - Integration types:
     - MOCK: API Gateway responds without sending the request to the back-end
-    - HTTP / AWS (Lambda and other services): forwards the request but we can modified it
+    - HTTP / AWS (Lambda and other services): forwards the request, but we can modify it
         - We must configure both the integration request and the integration response
         - Setup data mapping using **mapping templates** for request and response
     - AWS_PROXY (Lambda Proxy): the request is passed to the Lambda without being modified
@@ -91,7 +91,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 ## Caching in API Gateway
 
 - Caching can reduce the number of calls made to the back-end
-- Default TTL is 3000 seconds (min: 0, max: 3600s)
+- Default TTL is 300 seconds (min: 0, max: 3600s)
 - Caching is defined per stage (one cache per stage)
 - Possible to override cache setting per method
 - Cache can be encrypted
@@ -111,7 +111,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
     - API key can be used to identify clients and meter their access
 - API keys:
     - Alphanumeric strings
-    - Clients can securely use the API and we can authenticate requests
+    - Clients can securely use the API, and we can authenticate requests
     - We can control access
     - Quota limits is the overall number of requests
 - Order:
@@ -125,7 +125,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 
 - CloudWatch Logs:
     - Can be enabled at stage level
-    - Can override settings on a per API basis
+    - Can override settings on a per-API basis
     - Log contains information about the request/response body
 - X-Ray:
     - Enable tracing to get extra information
@@ -135,7 +135,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
     - Useful metrics: 
         - **CacheHitCount** and **CacheMissCount** give information about the efficiency of the cache
         - **Count** - the total number of API requests
-        - **IntegrationLatency** - the time between the request are relayed the the back-end and response is received by the API Gateway
+        - **IntegrationLatency** - the time between the request are relayed to the back-end and response is received by the API Gateway
         - **Latency** - total time between request and response. Max amount of time a request can perform is **29 seconds**
         - **4XXError** - client side errors
         - **5XXError** - server side errors
@@ -150,7 +150,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
         - 400: Bad Request
         - 403: Access Denied, WAF filtered
         - 429: Quota exceeded, Too Many Requests
-    -5xx server errors:
+    - 5xx server errors:
         - 502: Bad Gateway - incompatible output from the back-end or out-of-order invocation due to heavy loads
         - 503: Service Unavailable
         - 504: Integration Failure - Back-end request timeout exceeded
@@ -165,7 +165,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 
 ## Security and IAM Permissions
 
--IAM Permissions:
+- IAM Permissions:
     - We should create an IAM policy if other AWS services access the API Gateway from the same account
     - We can leverage "Sig v4" capability where IAM credentials are in headers
     - Authentication = IAM | Authorization = IAM Policy
@@ -187,7 +187,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 ## HTTP API vs REST API
 
 - HTTP APIs:
-    - Low latency, cost effective AWS lambda proxy, HTTP proxy and private integration (no data mapping)
+    - Low latency, cost-effective AWS lambda proxy, HTTP proxy and private integration (no data mapping)
     - Supported authorization: OIDC, OAuth2 CORS
     - No usage plans and API keys
 - REST APIs:

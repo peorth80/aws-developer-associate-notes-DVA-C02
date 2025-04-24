@@ -1,6 +1,6 @@
-# Certified AWS Associate Developer Notes
+# Certified AWS Developer - Associate Notes
 
-### 2021 AWS developer associate exam 
+### 2024 AWS Developer Associate Exam 
 
 ## Table of contents
 
@@ -49,9 +49,6 @@
   - Elastic Container Registry
   - Fargate
 
-- [Exam Preparation](#exam-preparation)
-
-
 ## Exam Preparation
 
 - Exam details
@@ -67,7 +64,7 @@
         - Monitoring and Troubleshooting: CloudWAtch, CloudTrail, X-Ray
 
     - Exam Guide:
-        - [Certified Developer - Associate Exam PDF](https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS_Certified_Developer_Associate-Exam_Guide_EN_1.4.pdf)
+        - [Certified Developer - Associate Exam PDF](https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
 
 - EC2 + IAM Exam Checklist
   * Know how to SSH into EC2 (and change .pem file permissions) 
