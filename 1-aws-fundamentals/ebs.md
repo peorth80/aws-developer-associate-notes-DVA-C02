@@ -18,16 +18,18 @@
     * You can increase the capacity of the drive over time
 
 #### EBS Volume Types
-- EBS Volumes come in 4 types 
+EBS Volumes come in 4 types 
+
 - GP2 (SSD): General purpose SSD volume that balances price and performance for a wide variety of workloads 
 - IO1 (SSD): Highest-performance SSD volume for mission-critical low-latency or high-throughput workloads 
 - ST1 (HDD): Low cost HDD volume designed for frequently accessed, throughput-intensive workloads 
-- SC1 (HDD): Lowest cost HDD volume designed for less frequently accessed workloads 
+- SC1 (HDD): Lowest cost HDD volume designed for less frequently accessed workloads (C = cold)
 - EBS Volumes are characterized in Size | Throughput | IOPS
 - When in doubt always consult the AWS documentation
 -  Only GP2 and IO1 can be used as boot volumes
 
 #### EBS Volume Types Use Cases
+
 1. GP2
 - Recommended for most workloads 
 - System boot volumes
@@ -101,6 +103,7 @@ EBS Snapshots
 * Migrating an EBS volume across AZ means first backing it up (snapshot), then recreating it in the other AZ
 * EBS backups use IO and you shouldn’t run them while your application is handling a lot of traffic
 * Root EBS Volumes of instances get terminated by default if the EC2 instance gets terminated. (You can disable that)
+* If you want to change the Delete on termination flag on a running instance, you need to use the command line/CLI
 * In some cases, it's better to externalize your RDS database so that it won't get deleted when you delete your elastic beanstalk enviornment
 * Elastic Beanstalk relies on CloudFormation
 

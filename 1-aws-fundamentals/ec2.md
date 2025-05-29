@@ -32,7 +32,7 @@ If your machine is stopped and then restarted, the public IP will change
 * It allows EC2 instances to "learn" about themselves without having to use an IAM role for that purpose
 * Powerful but one of the least known features to developers
 * You can retrieve IAM roles from the metadata but **not** IAM policies
-* URL: {ec2-ip-address}/latest/meta-data
+* URL: http://169.254.169.254/latest/meta-data (only inside the instance)
 
 ## EC2 Instance Launch Types 
 - **On Demand Instances**: short workload, predictable pricing
@@ -49,7 +49,7 @@ If your machine is stopped and then restarted, the public IP will change
 * No long term commitment
 * Recommended for short-term and un-interrupted workloads, where you can’t predict how the application will behave
 #### Reserved Instances
-* Up to 75% compared to On-demand
+* Up to 75% cheaper compared to On-demand
 * Pay upfront for what you use with long term commitment
 * Reservation period can be 1 or 3 years
 * Reserve a specific instance type
@@ -94,7 +94,7 @@ If your machine is stopped and then restarted, the public IP will change
   - Linux vs Windows vs Private OS (RHEL, SLES, Windows SQL)
   - You are billed by the second, with a minimum of 60 seconds. 
   - You also pay for other factors such as storage, data transfer, fixed IP public addresses, load balancing
-  - You do not pay for the instance if the instance is stopped 
+  - You do not pay for the instance if the instance is stopped (but you keep paying for the EBS, if any)
 
 - Example
   - t2.small in US-EAST-1 (VIRGINIA), cost $0.023 per Hour 
@@ -133,9 +133,9 @@ If your machine is stopped and then restarted, the public IP will change
 
 ## EC2 Instances Overview
 - Instances have 5 distinct characteristics advertised on the website:
-  - The RAM(type,amount,generation)
-  - The CPU(type,make,frequency,generation,numberofcores)
-  - The I/O (disk performance, EBS optimisations)
+  - The RAM (type, amount, generation)
+  - The CPU (type, make, frequency, generation, number of cores)
+  - The I/O (disk performance, EBS optimizations)
   - The Network (network bandwidth, network latency
   - The Graphical Processing Unit (GPU) 
 - It may be daunting to choose the right instance type (there are over 50 of them) - https://aws.amazon.com/ec2/instance-types/ 
@@ -143,6 +143,7 @@ If your machine is stopped and then restarted, the public IP will change
 - R/C/P/G/H/X/I/F/Z/CR are specialised in RAM, CPU, I/O, Network, GPU 
 - M instance types are balanced 
 - T2/T3 instance types are “burstable”
+
 Burstable Instances (T2)
 - AWS has the concept of burstable instances (T2 machines) 
 - Burst means that overall, the instance has OK CPU performance. 
@@ -151,7 +152,7 @@ Burstable Instances (T2)
 - If all the credits are gone, the CPU becomes BAD 
 - If the machine stops bursting, credits are accumulated over time
 - Burstable instances can be amazing to handle unexpected traffic and getting the insurance that it will be handled correctly 
-- If your instance consistently runs low on credit, you need to move to a different kind of non-burstable instance (all the ones described before). 
+- If your instance consistently runs low on credit, you need to move to a different kind of non-burstable instance (one the ones described before). 
 
 ### T2 Unlimited 
 - Nov 2017: It is possible to have an “unlimited burst credit balance
