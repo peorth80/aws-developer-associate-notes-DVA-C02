@@ -8,8 +8,7 @@ CloudWatch is used for monitoring.
     - Automatically
     - Using Infrastructure as Code
     - Leveraging AWS components
-- Because applications are deployed, and users don’t care what services we've used
-- Users only care that the application is working!
+- Because applications are deployed, and users don’t care what services we've used. Users only care that the application is working
     - Application latency: will it increase over time?
     - Application outages: customer experience should not be degraded
     - Users contacting the IT department or complaining is not a good outcome
@@ -46,8 +45,7 @@ CloudWatch is used for monitoring.
 - With detailed monitoring (for a cost), you get data “every 1 minute”
 - Use detailed monitoring if you want to more prompt scale your ASG!
 - The AWS Free Tier allows us to have 10 detailed monitoring metrics
-- **Note:** EC2 Memory usage is by default not pushed (must be pushed
-from inside the instance as a custom metric)
+- **Note:** EC2 Memory usage is by default not pushed (must be pushed from inside the instance as a custom metric)
 
 ### AWS CloudWatch Custom Metrics
 - Possibility to define and send your own custom metrics to CloudWatch
@@ -62,7 +60,7 @@ from inside the instance as a custom metric)
 
 ### Alarms are used to trigger notifications for any metric
 - Alarms can go to Auto Scaling, EC2 Actions, SNS notifications
-- Various options (sampling, %, max, min, etc...)
+- Various options (sampling, %, max, min, sum, etc...)
 - Alarm States:
     - OK
     - INSUFFICIENT_DATA
@@ -77,7 +75,7 @@ from inside the instance as a custom metric)
     - Elastic Beanstalk: collection of logs from application
     - ECS: collection from containers
     - AWS Lambda: collection from function logs
-    - VPC Flow Logs:VPC specific logs
+    - VPC Flow Logs: VPC specific logs
     - API Gateway
     - CloudTrail based on filter
     - CloudWatch log agents: for example on EC2 machines
@@ -87,11 +85,12 @@ from inside the instance as a custom metric)
     - Stream to ElasticSearch cluster for further analytics
 - CloudWatch Logs can use filter expressions
 - Logs storage architecture:
-    - Log groups: arbitrary name, usually representing an application. Log expiration policy should be defineda at this level.
+    - Log groups: arbitrary name, usually representing an application. Log expiration policy should be defined at this level. 
+        - Lambda also groups them by execution
     - Log stream: instances within application / log files / containers
 - Can define log expiration policies (never expire, 30 days, etc..)
 - Using the AWS CLI we can tail CloudWatch logs
-- To send logs to CloudWatch, make sure IAM permissions are correct!
+- To send logs to CloudWatch, make sure IAM permissions are correct
 - Security: encryption of logs using KMS at the Group Level
 
 ### AWS CloudWatch Events
@@ -99,5 +98,4 @@ from inside the instance as a custom metric)
 - Event Pattern: Event rules to react to a service doing something
     - Ex: CodePipeline state changes
 - Triggers to Lambda functions, SQS/SNS/Kinesis Messages
-- CloudWatch Event creates a small JSON document to give information
-about the change
+- CloudWatch Event creates a small JSON document to give information about the change

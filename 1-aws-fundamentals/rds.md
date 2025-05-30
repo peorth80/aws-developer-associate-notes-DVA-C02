@@ -19,10 +19,10 @@ Advantages of RDS over deploying a database in EC2
 * Multi AZ setup for DR (Disaster Recovery)
 * Maintenance windows for upgrades
 * Scaling capability (vertical and horizontal)
-* But you can’t SSH into your instances (amazon manages them for you)
+* But you can’t SSH into your instances (Amazon manages them for you)
 
 RDS Read replicas for read scalability
-* Up to 15 read replicas(MySQL, MariaDB and PostgreSQL) and 5 read replicas(Oracle and SQL Server)
+* Up to 15 read replicas (MySQL, MariaDB and PostgreSQL) and 5 read replicas (Oracle and SQL Server)
 * Within AZ, Cross AZ or Cross region
 * Replication is Async, so reads are eventually consistent
 * Replicas can be promoted to their own DB
@@ -85,7 +85,7 @@ RDS Security
 * RDS Security works by leveraging security groups (the same concept as for EC2 instances) - it controls who can communicate with RDS
 * IAM policies help control who can manage RDS
 * Traditional username and password can be used to login to the database
-* IAM users can now be used too (for MySQL / Aurora - New)
+* IAM users can now be used too (MySQL and Postgress (including Aurora))
 
 RDS vs. Aurora
 * Aurora is a proprietary technology from AWS (not open sourced)
@@ -98,7 +98,7 @@ RDS vs. Aurora
 - Aurora supports for cross region replication
 
 Aurora DB Cluster
-- writer endpoint : pointing to the master
+- writer endpoint: pointing to the master
 - reader endpoint: connection load balancing
 
 Aurora Security

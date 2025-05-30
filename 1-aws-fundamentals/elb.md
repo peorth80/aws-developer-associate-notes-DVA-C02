@@ -39,7 +39,7 @@ It costs less to setup your own load balancer, but it will be a lot more effort 
   * Load balancing based on hostname in URL 
 * Basically, they’re awesome for micro services & container-based application (example: Docker & Amazon ECS) 
 * Has a port mapping feature to redirect to a dynamic port 
-* In comparison, we would need to create one Classic Load Balancer per application before.That was very expensive and inefficient!
+* In comparison, we would need to create one Classic Load Balancer per application before. That was very expensive and inefficient!
 * Good to Know
     * Stickiness can be enabled at the target group level
         * Same request goes to the same instance
@@ -64,4 +64,4 @@ It costs less to setup your own load balancer, but it will be a lot more effort 
 * 4xx errors are client induced errors
 * 5xx errors are application induced errors
     * Load balancer Errors 503 means at capacity or no registered target
-* If the LB can’t connect to your application, check your security
+* If the LB can’t connect to your application, check your security groups

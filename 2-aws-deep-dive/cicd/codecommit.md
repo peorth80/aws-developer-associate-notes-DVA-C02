@@ -23,7 +23,7 @@
         - IAM Policies manage user / roles rights to the repositories
     - Encryption
         - Repositories are automatically encrypted at rest using KMS
-        - Encrypted in transit (can only user HTTPS or SSH  both secure)
+        - Encrypted in transit (can only user HTTPS or SSH)
     - Cross Account access:
         - Do not share your SSH keys
         - Do not share your AWS credentials
@@ -43,7 +43,7 @@
             - Github UI is fully featured
             - CodeCommit is minimal
 - CodeCommit notifications
-    - You can trigger notifications in CodeCommit using AWS SNS(Simple Notification Service) or AWS Lambda or AWS CloudWatch Event Rules
+    - You can trigger notifications in CodeCommit using AWS SNS (Simple Notification Service) or AWS Lambda or AWS CloudWatch Event Rules
     - Use cases for notifications SNS / AWS Lambda notifications:
         - Deletion of branches
         - Trigger for pushes that happens in master branch
@@ -54,4 +54,4 @@
         - Commit comment events
         - CloudWatch Event Rules goes into an SNS topic
 
-**NOTE**: As of May 31, 2019, Use the "Old Experience" UI for now as the new UI has bugs!
+**NOTE**: CodeCommit has been deprecated and you can only use it if you have repos on your account. You can't create new repos.

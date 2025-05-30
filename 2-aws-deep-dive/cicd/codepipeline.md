@@ -4,7 +4,7 @@
 - Visual workflow
 - Source: GitHub, CodeCommit, Amazon S3
 - Build: CodeBuild, Jenkins, etc...
-- Load Testing: 3rd par ty tools
+- Load Testing: 3rd party tools
 - Deploy: AWS CodeDeploy, Beanstalk, CloudFormation, ECS...
 - Made of stages:
     - Each stage can have sequential actions and / or parallel actions

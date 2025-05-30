@@ -8,8 +8,8 @@
 - To be a proper AWS developer, you'd need to learn CICD
 
 - CICD Services in AWS
-    - AWS CodeCommit: storing our code (similar to Github)
-    - AWS CodePipeline: automating our pipeline from code to ElasticBeanstalk
+    - AWS CodeCommit: storing our code (similar to Github -- deprecated in new accounts)
+    - AWS CodePipeline: automating our pipeline from code to ElasticBeanstalk, Lambda, etc.
     - AWS CodeBuild: To build and test code
     - AWS CodeDeploy: deploying code to EC2 fleets (not Beanstalk)
 

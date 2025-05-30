@@ -4,7 +4,7 @@ Route 53 is a managed DNS (Domain Name System)
 
 DNS is a collection of rules and records which helps clients understand how to reach a server through URLs.
 
-In AWS, the most common records are (will be on exam):
+In AWS, the most common records are:
 * A: URL to IPv4
 * AAAA: URL to IPv6
 * CNAME: URL to URL (ONLY FOR **NON** ROOT DOMAIN)

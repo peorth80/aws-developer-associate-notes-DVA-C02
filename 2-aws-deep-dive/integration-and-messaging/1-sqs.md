@@ -4,7 +4,7 @@ SQS is a service that manages and operates message oriented middleware. It enabl
 
 What's a queue?
     - A form of asynchronous service to service communication used in multiple application architectures.
-    - Messages are stored on teh queue until they are processed and deleted
+    - Messages are stored on the queue until they are processed and deleted
 
 ## Standard Queue
 
@@ -20,7 +20,7 @@ What's a queue?
 - Can have messages out of order (best effort ordering)
 - Limitation of 256kb per message sent
 
-## Delay Queue
+## Delay messages
 
 - Delay a message so a consumer doesn't see it immediately
     - up to 15-minute delay
@@ -50,7 +50,7 @@ What's a queue?
     - Can be set between 0 seconds to 12 hours
     - Default 30 seconds
     - If it takes 15 minutes or greater and consumer fails to process the message, you must wait before processing the message again
-    - IF set to 30 seconds or lower and consumer needs time to process the message, another consumer will receive the message and will be processed more than once
+    - If set to 30 seconds or lower and consumer needs time to process the message, another consumer will receive the message and will be processed more than once
 - **ChangeMessageVisibility**
     - An API to change the visibility while processing a message
 - **DeleteMessage**
@@ -63,6 +63,7 @@ What's a queue?
     - DLQ is useful for debugging
     - Retention times for the messages should be set to max (14 days) in case of a DLQ
     - DLQ is a queue which is created separately and attached to the normal queue
+    - You can't mix a FIFO Queue with a NON FIFO Dead Letter Queue (both need to be FIFO or Standard)
 
 ### Long Polling
 

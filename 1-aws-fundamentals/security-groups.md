@@ -17,3 +17,9 @@ They regulate:
 * Authorized IP ranges - IPv4 and IPv6
 * Control of inbound network
 * Control of outbound network
+
+
+#### Network ACL versus SG
+* Security groups are *stateful* and ACL are *stateless*
+    * SG: If you allow inbound port, outbound port is automatically allowed (and vice versa). You define the rule in one direction
+    * ACL: Rules are evaluated independenly for inbound and outbound. You must explicity allow the return traffic

@@ -1,13 +1,7 @@
 # CloudFormation
 
-- Currently, we have been doing a lot of manual work
-- All this manual work will be very tough to reproduce:
-    - In another region
-    - In another AWS account
-    - Within the same region if everything was deleted
-- Wouldn’t it be great, if all our infrastructure was... code?
-- That code would be deployed and create / update / delete our
-infrastructure
+- Using the console is a lot of manual work. Replicating this in another region, in another account, is slow and prone to errors.
+- It's much better to deploy and create / update / delete our infra with code
 
 #### What is CloudFormation?
 - CloudFormation is a declarative way of outlining your AWS Infrastructure, for any resources (most of them are supported).
@@ -20,11 +14,7 @@ infrastructure
     - Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify
 
 **Note**: This is an introduction to CloudFormation
-- It can take over 3 hours to properly learn and master CloudFormation
-- This section is meant for you get a good idea of how it works
-- We’ll be slightly less hands-on than in other sections
-- We’ll learn everything we need to answer questions for the exam
-- The exam does not require you to actually write CloudFormation
+- The exam does not require you to actually write CloudFormation 
 - The exam expects you to understand how to read CloudFormation
 
 #### Benefits of CloudFormation
@@ -45,15 +35,14 @@ infrastructure
     - Network stacks
     - App stacks
 - Don’t re-invent the wheel
-    - Leverage existing templates on the web!
+    - Leverage existing templates on the web
     - Leverage the documentation
 
 #### How CloudFormation works
 - Templates have to be uploaded in S3 and then referenced in CloudFormation
 - To update a template, we can’t edit previous ones. We have to re-upload a new version of the template to AWS
 - Stacks are identified by a name
-- Deleting a stack deletes every single artifact that was created by
-CloudFormation.
+- Deleting a stack deletes every single artifact that was created by CloudFormation.
 
 #### Deploying CloudFormation templates
 - Manual way:
@@ -200,7 +189,7 @@ CloudFormation.
 
 #### CloudFormation Rollbacks
 - Stack Creation Fails
-    - Default: everything rolls back (gets deleted).We can look at the log
+    - Default: everything rolls back (gets deleted). We can look at the log
     - Option to disable rollback and troubleshoot what happened
 - Stack Update Fails:
     - The stack automatically rolls back to the previous known working state

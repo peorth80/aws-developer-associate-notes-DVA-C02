@@ -22,7 +22,7 @@
 ### Compatibility
 - AWS Lambda
 - Elastic Beanstalk
-    - add x-ray config file to `.ebextensions/` folder in your code
+    - add xray-daemon.config file to `.ebextensions/` folder in your code
 - ECS
 - ELB
 - API Gateway
@@ -44,11 +44,11 @@
 1. Your code (Java, Python, Go, Node.js, .NET) must import the AWS X-Ray SDK
     - Very little code modification needed
     - The application SDK will then capture:
-    - Calls to AWS services
-    - HTTP / HTTPS requests
-    - Database Calls (MySQL, PostgreSQL, DynamoDB)
-    - Queue calls (SQS)
-2. Install the X-Ray daemon or enable X-Ray AWS Integration
+        - Calls to AWS services
+        - HTTP / HTTPS requests
+        - Database Calls (MySQL, PostgreSQL, DynamoDB)
+        - Queue calls (SQS)
+2. Install the X-Ray daemon (EC2) or enable X-Ray AWS Integration (Lambda)
     - X-Ray daemon works as a low level UDP packet interceptor (Linux / Windows / Mac...)
     - AWS Lambda / other AWS services already run the X-Ray daemon for you
     - Each application must have the IAM rights to write data to X-Ray
@@ -63,6 +63,5 @@
     - Ensure the EC2 IAM Role has the proper permissions
     - Ensure the EC2 instance is running the X-Ray Daemon
 - To enable on AWS Lambda:
-    - Ensure it has an IAM execution role with proper policy
-(AWSX-RayWriteOnlyAccess)
+    - Ensure it has an IAM execution role with proper policy (AWSX-RayWriteOnlyAccess)
     - Ensure that X-Ray is imported in the code

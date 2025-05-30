@@ -29,6 +29,6 @@ Official SDKs:
 
 #### Exponential Backoff
 
-- Any API that fails because of too many calls needs to be retried with Exponential Backoff
+- Any API that fails because of too many calls needs to be retried with Exponential Backoff (usually HTTP Status 429)
 - These apply to rate limited API
 - Retry mechanism is included in SDK API calls

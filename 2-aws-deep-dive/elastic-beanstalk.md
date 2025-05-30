@@ -20,7 +20,7 @@
 - Elastic Beanstalk has three components:
   - Application
   - Application Version (Each deployment gets assigned a version)
-  - Environment name (dev, staging, prod): free naming
+  - Environment name (dev, staging, prod, etc): free naming
 - You deploy application versions to environments and can promote application versions to the next environment
 - Rollback feature to previous application versions
 - Full control over the lifecycle of environments
@@ -93,6 +93,7 @@ What if you want to update each deployment
   - .config extensions (example: logging.config)
   - Able to modify some default settings using: option_settings
   - Ability to add resources such as RDS, ElastiCache, DynamoDB, etc...
+  - Can enable X-Ray support
 - Resources managed by .ebextensions get deleted if the environment goes away
 - The .ebextensions folder goes to the root of your project
 
