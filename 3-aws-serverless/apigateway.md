@@ -188,7 +188,7 @@ Allows us to create REST APIs which can be public and accessible to the clients.
 
 - HTTP APIs:
     - Low latency, cost-effective AWS lambda proxy, HTTP proxy and private integration (no data mapping)
-    - Supported authorization: OIDC, OAuth2 CORS
+    - Supported authorization: OIDC, OAuth2, CORS
     - No usage plans and API keys
 - REST APIs:
     - No native OpenID Connect / OAuth 2.0 support
@@ -196,6 +196,4 @@ Allows us to create REST APIs which can be public and accessible to the clients.
     - Two-way interactive communication between the user and the server
     - Server can push information to the client (Stateful application)
     - Used for real-time applications such as chat, collaboration platforms, multiplayer games, trading platforms
-
-
-
+    

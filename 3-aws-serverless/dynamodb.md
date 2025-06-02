@@ -13,8 +13,8 @@
 | ---------------------------------------------------------- | ------------------------------------------------------------- |
 | Traditional applications leverage RDBMS databases          | Non-relational, **distributed** databases                     |
 | SQL query language                                         | Many different query languages, SQL can be one                |
-| Strong requirements about how the data should be modelled | All the data should be present in one row                     |
-| Ability to do joins, aggregations and computations         | Do not support join, can't perform aggregations such as "SUM"  |
+| Strong requirements about how the data should be modelled  | All the data should be present in one row                     |
+| Ability to do joins, aggregations and computations         | Do not support join, can't perform aggregations such as "SUM" |
 | Vertical scaling                                           | **Horizontal scaling**                                        |
 
 ## DynamoDB Basics
@@ -54,10 +54,10 @@
     - 10 objects per second each of 2KB
 
     ```
-    2 * 10 = 20 WCU
+    10 * 2 = 20 WCU
     ```
 
-    - 6 objects per second, 4.5 each
+    - 6 objects per second, 4.5KB each
 
     ```
     6 * 5 = 30 WCU (4.5 should be rounded to 5)
@@ -170,7 +170,7 @@
     - Returns up to 1MB ot data - we can use pagination to keep reading
     - Consumes a lot of RCU
     - Limit impact using **Limit** /  reduce the size of the result in order to reduce costs
-    - Fost faster performance we can use parallel scan
+    - For faster performance we can use parallel scan
         - Way more RCU!
     - Can we use a combination of *ProjectionExpression + FilterExpression* (no charge to RCU)
     - Inefficient way to read data from DynamoDB!
@@ -357,7 +357,7 @@
     - Encryption at rest using KMS
     - Encryption  in transit using SSL/TLS
 - Backup/Restore:
-    - Point in time restore la RDS
+    - Point in time restore like RDS
     - No performance impact
 - Global Table:
     - Multi region, fully replicated, high performance

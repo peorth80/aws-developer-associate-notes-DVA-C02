@@ -45,9 +45,9 @@
   - [AppSync](3-aws-serverless/appsync.md)
 
 - Docker based AWS services
-  - ECS: Elastic Container Service
-  - Elastic Container Registry
-  - Fargate
+  - [ECS: Elastic Container Service](4-aws-containers/ecs.md)
+  - [Elastic Container Registry](4-aws-containers/ecr.md)
+  - [Fargate](4-aws-containers/fargate.md)
 
 ## Exam Preparation
 
@@ -61,7 +61,7 @@
         - Security: each service deep-dive + dedicated section
         - Development with AWS Services: Serverless, API, SDK, & CLI
         - Refactoring: Understand all the AWS services for the best migration
-        - Monitoring and Troubleshooting: CloudWAtch, CloudTrail, X-Ray
+        - Monitoring and Troubleshooting: CloudWatch, CloudTrail, X-Ray
 
     - Exam Guide:
         - [Certified Developer - Associate Exam PDF](https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
@@ -73,6 +73,7 @@
   * Know how to use User Data to customize your instance at boot time 
   * Know that you can build custom AMI to enhance your OS 
   * EC2 instances are billed by the second and can be easily created and thrown away, welcome to the cloud! 
+  
   Maybe on Exam:
   * Availability zones are in geographically isolated data centers
   * IAM users are NOT defined on a per-region basis

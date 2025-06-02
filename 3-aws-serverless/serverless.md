@@ -9,7 +9,8 @@ What is Serverless?
 - Serverless does not mean there are no servers, it mostly means you don't manage or provision them
 
 Serverless services in AWS
-- AWS Lambda & Step Functions
+- AWS Lambda 
+- Step Functions
 - DynamoDB
 - AWS Cognito
 - AWS API Gateway
@@ -17,4 +18,3 @@ Serverless services in AWS
 - AWS SNS & SQS
 - AWS Kinesis
 - Aurora Serverless
-

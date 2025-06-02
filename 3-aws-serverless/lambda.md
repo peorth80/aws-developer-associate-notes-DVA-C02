@@ -27,9 +27,10 @@ Why use AWS Lambda?
 AWS Lambda language support:
 - Node.js (JavaScript)
 - Python
-- Java (Java 8 compatible) • C# (.NET Core)
+- Java (Java 8 compatible) 
+- C# (.NET Core)
 - Golang
-- C# / Powershell
+- Powershell
 
 ## AWS Lambda pricing
 
@@ -46,10 +47,12 @@ AWS Lambda language support:
 
 ## AWS Lambda configuration
 
-- Timeout: default 3 seconds, max of 300s (Note: new limit 15 minutes) - Environment variables
+- Timeout: default 3 seconds, max of 300s (Note: new limit 15 minutes) 
+- Environment variables
 - Allocated memory (128M to 3G)
 - Ability to deploy within a VPC + assign security groups
 - IAM execution role must be attached to the Lambda function
+- You define the policies for the role that the Lambda function will take when running (IE, permissions for a DynamoDB Table or access to an S3 Bucket, etc)
 
 ## AWS Lambda Synchronous Invocation
 
@@ -197,7 +200,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 
 ## IAM Roles for Lambda
 
-- Grants permission to Lambda to access other AWS services (obviously :)
+- Grants permission to Lambda role to access other AWS services (obviously :)
 - When we use an event source mapping to invoke a function, Lambda uses the execution role to read event data.
 - Best practice: one execution role per function
 - Lambda resource based policy: give other accounts of AWS services to use Lambda resources
@@ -211,11 +214,11 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 - Adjust the system behavior
 - Env. variables are available to the function code
 - Lambda has its own env. variables
-- Env. variables can be encrypted (KMS), useful for secrets
+- Env. variables can be encrypted (KMS), useful for secrets, no code changes needed (your code still recieves the unencrypted value)
 
 ## Logging / Monitoring
 
-- Integration with CloudWatch logs if the lambda has the IAM policy
+- Integration with CloudWatch logs (if the lambda has the IAM policy)
 - CloudWatch Metrics:
     - Information about invocation, duration, concurrent execution
     - Error count, success rate, throttles
@@ -225,14 +228,14 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 - Env. variables for X-Ray:
     - **_X_AMZN_TRACE_ID**
     - **AWS_XRAY_CONTEXT_MISSING**
-    - **AWS_XRAY_DAEMON_ADDRESS** -  X-Ray Daemon *IP_ADDRESS:PORT*
+    - **AWS_XRAY_DAEMON_ADDRESS** (X-Ray Daemon *IP_ADDRESS:PORT*)
 
 ## Networking
 
 - By default: Lambda is launched outside of user VPC, so it can not access resources from inside of a private VPC
 - Lambda can be deployed in a VPC:
     - Lambda will create an ENI (Elastic Network Interface)
-    - Needed *AWSLambdaVPCAccessExecutionRole*
+    - Needs *AWSLambdaVPCAccessExecutionRole*
 - By default: Lambda in a user defined VPC can not access internet (even if the VPC is public). Solution: NAT Gateway / Instance, Lambda deployed in a private subnet
 - DynamoDB can be accessed via VPC endpoints (or via public internet)
 - CloudWatch logs work in private subnet without NAT
@@ -287,8 +290,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 - Custom Runtimes for Lambda, example:
     - C++ [https://github.com/awslabs/aws-lambda-cpp](aws-lambda-cpp)
     - Rust [https://github.com/awslabs/aws-lambda-rust-runtime](aws-lambda-rust)
-- Externalize dependencies to re-use them in case of bigger
-dependency packages
+- Externalize dependencies to re-use them in case of bigger dependency packages
 - Another function could reuse layers
 
 ## AWS Lambda Versions and Aliases
