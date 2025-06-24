@@ -17,3 +17,5 @@
     - `sam package`
 - To define a nested app:
     - `AWS::ServerLess::Application`
+- To publish an application to the AWS Serverless Application Repository, use `sam publish`
+- To deploy your application into AWS, use `sam deploy`

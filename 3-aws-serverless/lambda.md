@@ -52,6 +52,9 @@ AWS Lambda language support:
 - Allocated memory (128M to 3G)
 - Ability to deploy within a VPC + assign security groups
 - IAM execution role must be attached to the Lambda function
+    - AWS policies example:
+        - AWSLambdaBasicExecutionRole: Cloudwatch write access
+        - AWSDynamoDbExecutionRole: DynamoDb write access, including streams
 - You define the policies for the role that the Lambda function will take when running (IE, permissions for a DynamoDB Table or access to an S3 Bucket, etc)
 - Three types of invocations:
     - RequestResponse: (default, sync)

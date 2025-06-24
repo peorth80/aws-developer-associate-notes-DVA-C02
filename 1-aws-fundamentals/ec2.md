@@ -158,3 +158,6 @@ Burstable Instances (T2)
 - Nov 2017: It is possible to have an “unlimited burst credit balance
 - You pay extra money if you go over your credit balance, but you don’t lose in performance
 - Overall, it is a new offering, so be careful, costs could go high if you’re not monitoring the health of your instances 
+
+### Cloudwatch monitoring
+- If you need to monitor _memory_ and _SWAP Usage_, you must install Cloudwatch Logs Agent. For CPU and other basic monitoring, you don't need to.

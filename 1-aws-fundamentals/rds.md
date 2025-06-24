@@ -67,6 +67,7 @@ RDS Encryption
 * TO connect using SSL:
     * Provide the SSL Trust certificate (can be downloaded from AWS)
     * Provide SSL options when connection to the database
+* ONLY ON SQL SERVER: You can enable _RDS Data Encryption_ which will perform transparent data encryption (TDE) automatically
 	
 	
 RDS Encryption Operations
@@ -129,3 +130,7 @@ Global Aurora
 	
 Connection Pool
 - If you get RDS _1040 Too Many Connections_, you can enable Connection Pool to reuse connections
+
+Monitoring
+- Enhaced Monitoring gathers metrics for an _agent_ in the instance
+- Default Monitoring allows you to get CPU % for the _hypervisor_ of the instance

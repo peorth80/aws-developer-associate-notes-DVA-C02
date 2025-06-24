@@ -11,6 +11,7 @@
 - AppSync integrates with (resolvers) DynamoDB, Aurora, ElasticSearch, etc.
 - Supports customer resources using Lambda
 - Provides support for real time data retrieval using WebSocket or MQTT on WebSocket protocols
+- Allows multiple users to colaborate and sync in real time with shared data
 - Mobile applications: replacement for Cognito Sync
 - Requires a GraphQL schema for getting started
 - Example for GraphQL schema:
