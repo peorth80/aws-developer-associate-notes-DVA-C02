@@ -71,7 +71,7 @@ What's a queue?
 - Long polling decreases the number of API calls made to SQS while increasing the efficiency and latency of the application
 - The wait time can be set to 1 second up to 20 seconds.
 - Long polling should be preferred in case of short polling (wait time of 0 seconds)
-- Long polling is enabled by setting a value between 1 and 20 for **WaitTimeSeconds** queue attribute
+- Long polling is enabled by setting a value between 1 and 20 for **WaitTimeSeconds** queue attribute (_Recieve Message Wait Time_ > 0 means Long Polling is enabled)
 
 ### SQS Extended Client
 

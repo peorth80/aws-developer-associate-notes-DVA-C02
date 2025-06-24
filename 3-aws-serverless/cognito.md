@@ -24,6 +24,7 @@
 - User can be blocked if their credential is compromised elsewhere (in case of Federated Identities)
 - Login uses JSON Web Token (JWT)
 - CUP integrates with API Gateway and ALB
+- Can use **Adaptative authentication** (IE, ask for MFA when risk of insecure login is high/med/low)
 
 ### Cognito User Pools - Lambda Triggers
 

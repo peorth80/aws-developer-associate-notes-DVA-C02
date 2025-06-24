@@ -99,7 +99,7 @@
 ### 4. **ECS Service Types**
 
 * **Replica:** Maintains the number of desired tasks.
-* **Daemon:** One task per EC2 instance (EC2 mode only).
+* **Daemon:** One task per EC2 instance (EC2 mode only)
 
 ---
 
@@ -151,6 +151,9 @@
 * **ECS integrates with ECR (Elastic Container Registry) or DockerHub.**
 * **Security Groups/Subnets:** ECS tasks (in awsvpc) use ENIs, so attach security groups/subnets accordingly.
 * **Autoscaling:** ECS can scale services based on CloudWatch alarms.
+* **Decoupling Databases:** when you remove a database to decouple environments, remove the _security group_ first, or you won't be able to delete the environment
+* **Terminating Stopped Containers:** causes de-sync in the environment
+* **Docker and X-Ray**: If you need to include X-Ray create a Docker image with the X-Ray agent and publish it to the registry
 
 ---
 

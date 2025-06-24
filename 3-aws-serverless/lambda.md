@@ -53,6 +53,10 @@ AWS Lambda language support:
 - Ability to deploy within a VPC + assign security groups
 - IAM execution role must be attached to the Lambda function
 - You define the policies for the role that the Lambda function will take when running (IE, permissions for a DynamoDB Table or access to an S3 Bucket, etc)
+- Three types of invocations:
+    - RequestResponse: (default, sync)
+    - Event: (async, AWS events use this, returns just a status code, if you have an error, define a DLQ to check for problems)
+    - DryRun: from the CLI, checks permissions but does not run the function
 
 ## AWS Lambda Synchronous Invocation
 
@@ -111,6 +115,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
     - User authentication/authorization
     - User prioritization
     - User tracking and analytics
+- You can use Cognito to authenticate and authorize users via a Lambda function
 
 ## AWS Lambda Asynchronous Invocation
 
@@ -147,6 +152,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
     - Possible use case: generate thumbnails for newly uploaded images
     - S3 event notification typically deliver events in seconds, sometimes it can take longer
     - If two writes are happening on a single, non-versioned object at the same time, it is possible that only one event gets delivered (solution: enable versioning on the S3 bucket)
+    - To calculate the concurrent executions we can use: _invocations x sec * average duration_
 
 ## AWS Lambda Event Source Mapping
 
@@ -256,7 +262,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
     - Recommended: initialize DB connections outside of function handler, it can be reused for next execution
     - For permanent persistence use S3 (not /tmp)!
 - Concurrency:
-    - Limit: up to 1000 concurrent executions per account
+    - Limit: between 500 and 3000 concurrent executions (depends on the region)
     - Reserved concurrency creates a pool of requests that can only be used by its function, and also prevents its function from using unreserved concurrency
     - Invocation over concurrency limit will trigger throttle
     - Throttle behavior:

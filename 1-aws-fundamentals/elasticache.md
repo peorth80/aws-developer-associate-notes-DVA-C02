@@ -35,7 +35,7 @@ User Session Store
 * Memcached is an in-memory object store
 * Multi-node for partitioning of data (sharding)
 * Multithreading architecture
-* Cache doesn’t survive reboots
+* Cache doesn’t survive reboots -- **not highly available**
 * Use cases:
 	* Quick retrieval of objects from memory
 	* Cache often accessed objects

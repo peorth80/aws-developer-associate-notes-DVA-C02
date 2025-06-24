@@ -31,7 +31,7 @@
 ### X-Ray leverages Tracing
 - **Tracing** is an end to end way to following a “request”
 - Each component dealing with the request adds its own “trace”
-- Tracing is made of segments (+ sub segments)
+- Tracing is made of segments (+ sub segments -- when you need more granularity)
 - Annotations can be added to trace to provide extra-information
 - Ability to trace:
     - Every request
@@ -57,6 +57,12 @@
 - X-Ray service collects data from all the different services
 - Service map is computed from all the segments and traces
 - X-Ray is graphical, so even non-technical people can help troubleshoot
+- X-Ray has a way to filter expressions, and this is supported by adding _annotations_ (in key/value format, up to 50 per trace)
+- You can also add metadata to the traces, but this does not allow indexing. You can store whatever, even objects or lists.
+- X-Ray Headers:
+    - `X_AMNZ_TRACE_ID`: tracing header
+    - `AWS_XRAY_CONTEXT_MISSING`: LOG_ERROR by default (logs error and continue execution)
+    - `AWS_XRAY_DAEMON_ADDRESS`: IPADDRESS:PORT to define where the X-Ray Daemon is installed 
 
 ### AWS X-Ray Troubleshooting
 - If X-Ray is not working on EC2:

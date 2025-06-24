@@ -219,6 +219,7 @@
 - Up to 10 nodes in the cluster
 - Multi AZ (3 nodes minimum recommended)
 - Secure (encryption at rest with KMS, IAM, CloudTrail)
+- Fast but not cheap
 
 ## DynamoDB Streams
 
@@ -324,8 +325,8 @@
     - A write can only happen if a specific condition is met
     - First write will succeed, second write will fail because the condition wont be met
     - Important: **data is not overridden**
-- Atomic writes:
-    - INCREASE BY or DECREASE BY writes
+- Atomic writes/counters:
+    - INCREASE BY or DECREASE BY writes, as long as you don't need the EXACT number (IE, the number of visitors on a site can be slight off, but the total money you have should be exact and accurate on a banking app)
 - Batch writes:
     - Write an update containing many items at the same time
 

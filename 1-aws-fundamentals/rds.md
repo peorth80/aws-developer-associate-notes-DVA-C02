@@ -127,3 +127,5 @@ Global Aurora
 	- Helps for decreasing latency
 	• Promoting another region (for disaster recovery) has an RTO of < 1 minute
 	
+Connection Pool
+- If you get RDS _1040 Too Many Connections_, you can enable Connection Pool to reuse connections

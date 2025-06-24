@@ -194,3 +194,11 @@
 - Stack Update Fails:
     - The stack automatically rolls back to the previous known working state
     - Ability to see in the log what happened and error messages
+
+#### Code
+- You can define the code in the template itself when it's small/simple (only for NodeJS and Python):
+```
+Code:
+    ZipFile: |
+        <code goes here>
+```

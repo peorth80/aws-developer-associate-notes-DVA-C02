@@ -15,3 +15,5 @@
 - Package and deploy:
     - `aws cloudformation package`
     - `sam package`
+- To define a nested app:
+    - `AWS::ServerLess::Application`
