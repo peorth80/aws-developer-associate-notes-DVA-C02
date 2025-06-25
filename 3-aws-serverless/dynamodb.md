@@ -184,6 +184,7 @@
 - The sort key consist of exactly one scalar attribute
 - The attribute can be String, Number, Binary
 - *LSI must be defined at table creation time!*
+- LSI supports both *eventual* and *strong* consistency
 
 ### Global Secondary Index (GSI)
 
@@ -196,6 +197,7 @@
     - We can use all attributes from main table (ALL)
 - We must define a RCU/WCU for the index
 - *GSI can be created and modified after origin table creation!*
+- GSI only supports *eventual* consistency
 
 ### Throttling
 
@@ -355,6 +357,7 @@
 - Security:
     - VPC Endpoints to access DynamoDB without internet
     - Access fully controlled by IAM
+        - You can use `dynamodb:LeadingKeys` in the policy to allow access only to a particular/list of IAM user to a DynamoDb row
     - Encryption at rest using KMS
     - Encryption  in transit using SSL/TLS
 - Backup/Restore:

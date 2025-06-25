@@ -178,8 +178,9 @@ Allows us to create REST APIs which can be public and accessible to the clients.
     - API Gateway verifies the identity automatically from Cognito
     - No custom implementation required
     - Authentication = Cognito User Pools  | Authorization = API Gateway Methods
+    - Can't use Cognito Identity Pool as an authorizer
 - Lambda Authorizer (Custom Authorizer):
-    - Token-based authorizer (bearer token)
+    - Token-based authorizer (bearer token -- you can choose the name of the variable to use)
     - A request parameter-based Lambda authorizer
     - Lambda must return an IAM policy for the user, result policy is cached
     - Authentication = External | Authorization = Lambda function

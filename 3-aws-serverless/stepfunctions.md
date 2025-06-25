@@ -27,6 +27,7 @@
     - Exponential backoff: *IntervalSeconds*, *MaxAttempts*, *BackoffRate*
     - Move on - Catch: *ErrorEquals*, *Next*
 - Best practice: include data in the error message
+- Task state: Sync run / Paralell state: Async run
 
 ## Standard vs Express Step Functions
 

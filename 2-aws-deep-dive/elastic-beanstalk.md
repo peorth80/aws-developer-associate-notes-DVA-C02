@@ -110,3 +110,6 @@ What if you want to update each deployment
   - eb config
   - eb terminate
 - It’s helpful for your automated deployment pipelines!
+
+### ElasticBeanstalk and Docker
+- To add Docker, you need to add a `Dockerrun.aws.json` on the same app directory

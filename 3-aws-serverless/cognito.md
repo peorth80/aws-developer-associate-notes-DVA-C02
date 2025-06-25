@@ -89,3 +89,6 @@
 - **Push Sync**: silently notify across all devices when identity data changes
 - **Cognito Stream**: stream data from Cognito into Kinesis
 - **Cognito Events**: execute Lambda function in response to events
+
+## Cognito ID
+- You can use an IDP (IE, Facebook, Google, etc) w/Cognito to return temporary limited AWS credentials
