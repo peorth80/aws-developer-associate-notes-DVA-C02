@@ -92,6 +92,8 @@ CloudWatch is used for monitoring.
 - Using the AWS CLI we can tail CloudWatch logs
 - To send logs to CloudWatch, make sure IAM permissions are correct
 - Security: encryption of logs using KMS at the Group Level
+    - You can assign a KSM key to an existing log group and new entries on the log will be encrypted
+    - You can't specify a KMS key when creating a new log via `aws logs create-log-group`
 
 ### AWS CloudWatch Events
 - Schedule: Cron jobs
