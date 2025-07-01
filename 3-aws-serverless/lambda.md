@@ -91,11 +91,11 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 
 ### Lambda integration with ELB (ALB)
 
-    - Used for exposing a HTTP(S) endpoint
-    - The function must be registered in a target group
-    - HTTP request is converted by the ALB to JSON and the JSON is passed to the function an input
-    - The ALB converts the lambda response back to JSON
-    - Multi-header values: by default they are disabled. When enabled HTTP headers and query string parameters that are sent with multiple values are shown as arrays within the Lambda event and response object
+   - Used for exposing a HTTP(S) endpoint
+   - The function must be registered in a target group
+   - HTTP request is converted by the ALB to JSON and the JSON is passed to the function an input
+   - The ALB converts the lambda response back to JSON
+   - Multi-header values: by default they are disabled. When enabled HTTP headers and query string parameters that are sent with multiple values are shown as arrays within the Lambda event and response object
 
 ### Lambda@Edge
 
@@ -122,7 +122,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 
 ## AWS Lambda Asynchronous Invocation
 
-- Mainly invoked after a certain event
+- Mainly invoked after a certain event (IE, uploading a file to S3)
 - The events are placed in an internal event queue
 - Automatic retry: 3 retries: first one right after failure, second one waits 1 minute, third one after 2 minutes (exponential backoff)
 - Lambda function should be idempotent - in case of retries the result should be the same
@@ -245,7 +245,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
 - Lambda can be deployed in a VPC:
     - Lambda will create an ENI (Elastic Network Interface)
     - Needs *AWSLambdaVPCAccessExecutionRole*
-- By default: Lambda in a user defined VPC can not access internet (even if the VPC is public). Solution: NAT Gateway / Instance, Lambda deployed in a private subnet
+- By default: Lambda in a user defined VPC can not access internet (even if the VPC is public). Solution: NAT Gateway / Instance, Lambda deployed in a private subnet / check Lambda Security Groups to allow outbounds connections
 - DynamoDB can be accessed via VPC endpoints (or via public internet)
 - CloudWatch logs work in private subnet without NAT
 
@@ -336,7 +336,7 @@ aws lambda invoke --function-name hello-world --cli-binary-format raw-in-base64-
     - Max execution time: 900 seconds (15 minutes)
     - Env. variables: 4KB
     - Disk space (/tmp): 512MB to 10GB
-    - Concurrent executions 1000 per account (can be increased)
+    - Concurrent executions 1000 per account (can be increased, differs between regions)
 
 - Deployments:
     - Compressed: 50MB
