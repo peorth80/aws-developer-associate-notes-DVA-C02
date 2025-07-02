@@ -48,6 +48,10 @@
   - [ECS: Elastic Container Service](4-aws-containers/ecs.md)
   - [Elastic Container Registry](4-aws-containers/ecr.md)
   - [Fargate](4-aws-containers/fargate.md)
+ 
+- Other
+  - [KMS](5-others/kms.md)
+  - [Secret Manager](5-others/secret-manager.md)
 
 ## Exam Preparation
 
